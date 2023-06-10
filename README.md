@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.72.188
+IP 158.160.72.188
 
 Frontend https://myplace.nomoredomains.rocks
 
