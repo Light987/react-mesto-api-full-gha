@@ -13,18 +13,19 @@ const { loginJoi, createUserJoi } = require('./middlewares/validation');
 const errorCenter = require('./middlewares/errorCenter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT, DB_URL } = process.env;
 
 const app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // eslint-disable-next-line no-console
 mongoose.connect(DB_URL).then(() => console.log('Connected to DB'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cors({
   origin: [
+    'http://localhost:3000',
     'http://myplace.nomoredomains.rocks',
     'https://myplace.nomoredomains.rocks',
     'http://api.myplace.nomoredomains.rocks',

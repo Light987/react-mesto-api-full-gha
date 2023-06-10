@@ -74,7 +74,7 @@ module.exports.dislikeCard = (req, res, next) => cardSchema.findByIdAndUpdate(
 
   .then((card) => {
     if (!card) {
-      throw new NotFound('арточка с таким id не найдена.');
+      throw new NotFound('Карточка с таким id не найдена.');
     }
     return res.send({ data: card });
   })
