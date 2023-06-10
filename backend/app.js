@@ -33,13 +33,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.post('/signin', loginJoi, login);
-app.post('/signup', createUserJoi, createUser);
-
-app.use(auth);
-app.use(userRoutes);
-app.use(cardRoutes);
-
 app.use(requestLogger);
 
 app.get('/crash-test', () => {
@@ -47,6 +40,13 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
+app.post('/signin', loginJoi, login);
+app.post('/signup', createUserJoi, createUser);
+
+app.use(auth);
+app.use(userRoutes);
+app.use(cardRoutes);
 
 app.use((req, res, next) => {
   next(new NotFound('Такой страницы нет.'));
