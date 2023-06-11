@@ -80,8 +80,6 @@ class Api {
 }
 
 
-const api = new Api({
-  baseUrl: 'https://api.myplace.nomoredomains.rocks',
-});
+const api = new Api(configApi);
 
 export default api

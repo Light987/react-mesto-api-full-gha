@@ -1,5 +1,9 @@
 const configApi = {
-    url: 'https://api.myplace.nomoredomains.rocks',
+    url: 'http://api.myplace.nomoredomains.rocks',
+    headers: {
+    "Content-Type": "application/json",
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
 };
 
 
