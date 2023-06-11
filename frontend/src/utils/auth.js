@@ -1,5 +1,3 @@
-import {configApi} from "./constants";
-
 class Auth {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -46,6 +44,11 @@ class Auth {
   }
 }
 
-const auth = new Auth(configApi);
+const auth = new Auth({
+  baseUrl: "https://auth.nomoreparties.co",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
 export default auth;
