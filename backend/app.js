@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const helmet = require('helmet');
-const cors = require('./middlewares/cors');
 const cardRoutes = require('./routes/cards');
 const userRoutes = require('./routes/users');
 const { login, createUser } = require('./controllers/users');
