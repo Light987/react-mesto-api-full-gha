@@ -5,6 +5,8 @@ const allowedCors = [
   'http://api.myplace.nomoredomains.rocks',
   'https://localhost',
   'http://localhost',
+  'https://localhost:3000',
+  'http://localhost:3000',
 ];
 
 module.exports = (req, res, next) => {
