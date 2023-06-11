@@ -46,7 +46,7 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            navigate("/react-mesto-auth", { replace: true });
+            navigate("/", { replace: true });
             setEmail(res.data.email);
           }
         })
