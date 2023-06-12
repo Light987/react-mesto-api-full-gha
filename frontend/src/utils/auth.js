@@ -1,9 +1,6 @@
-import {configApi} from "./constants";
-
 class Auth {
-  constructor({ baseUrl, headers }) {
+  constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
-    this._headers = headers;
   }
 
   _getResponseData(res) {
@@ -14,9 +11,10 @@ class Auth {
   }
 
   register(newUserData) {
+    console.log(this._baseUrl);
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
-      headers: this._headers,
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         email: newUserData.email,
         password: newUserData.password,
@@ -27,7 +25,7 @@ class Auth {
   login(userData) {
     return fetch(`${this._baseUrl}/signin`, {
       method: "POST",
-      headers: this._headers,
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         email: userData.email,
         password: userData.password,
@@ -46,6 +44,8 @@ class Auth {
   }
 }
 
-const auth = new Auth(configApi);
+const auth = new Auth({
+  baseUrl: 'http://api.myplace.nomoredomains.rocks',
+});
 
 export default auth;

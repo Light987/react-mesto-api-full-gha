@@ -39,18 +39,19 @@ function App() {
   const [isDeleteCardLoading, setIsDeleteCardLoading] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token)
-      auth
-        .checkToken(token)
-        .then((res) => {
-          if (res) {
-            setLoggedIn(true);
-            navigate("/react-mesto-auth", { replace: true });
-            setEmail(res.data.email);
-          }
-        })
-        .catch((err) => console.log(err));
+    const token = localStorage.getItem("jwt");
+    if (token) {
+        auth
+            .checkToken(token)
+            .then((res) => {
+                if (res) {
+                    setLoggedIn(true);
+                    navigate("/react-mesto-auth", {replace: true});
+                    setEmail(res.email);
+                }
+            })
+            .catch((err) => console.log(err));
+    }
   }, [navigate]);
 
   useEffect(() => {
@@ -59,7 +60,7 @@ function App() {
         .then(([profileInfo, cards]) => {
           setCurrentUser(profileInfo);
           setCards(
-            cards.map((card) => ({
+            cards.reverse().map((card) => ({
               _id: card._id,
               name: card.name,
               link: card.link,
@@ -77,7 +78,7 @@ function App() {
       .login(userData)
       .then((res) => {
         if (res.token) {
-          localStorage.setItem("token", res.token);
+          localStorage.setItem("jwt", res.token);
           setLoggedIn(true);
           setEmail(userData.email);
           navigate("/", { replace: true });
@@ -110,7 +111,7 @@ function App() {
 
   function handleSignOut() {
     setLoggedIn(false);
-    localStorage.removeItem("token");
+    localStorage.removeItem("jwt");
     navigate("/sign-in", { replace: true });
   }
 

@@ -1,5 +1,5 @@
 {
-  "name": "express-mesto-gha",
+  "name": "react-mesto-api-full-gha",
   "version": "1.0.0",
   "description": "[![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml) [![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml)\r # Проект Mesto фронтенд + бэкенд",
   "main": "app.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Light987/express-mesto-gha.git"
+    "url": "git+https://github.com/Light987/react-mesto-api-full-gha.git"
   },
   "keywords": [
     "backend",
@@ -19,9 +19,9 @@
   "author": "Kravchenko Denis",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Light987/express-mesto-gha/issues"
+    "url": "https://github.com/Light987/react-mesto-api-full-gha/issues"
   },
-  "homepage": "https://github.com/Light987/express-mesto-gha#readme",
+  "homepage": "https://github.com/Light987/react-mesto-api-full-gha#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
