@@ -11,7 +11,6 @@ class Auth {
   }
 
   register(newUserData) {
-    console.log(this._baseUrl);
     return fetch(`${this._baseUrl}/signup`, {
       method: "POST",
       headers: {'Content-Type': 'application/json'},

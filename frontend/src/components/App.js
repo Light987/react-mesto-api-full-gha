@@ -60,18 +60,14 @@ function App() {
         .then(([profileInfo, cards]) => {
           setCurrentUser(profileInfo);
           setCards(
-            cards.reverse().map((card) => ({
-              _id: card._id,
-              name: card.name,
-              link: card.link,
-              likes: card.likes,
-              owner: card.owner,
-            }))
+            cards.reverse().map((card) => ({...card}))
           );
         })
         .catch((err) => console.log(err));
     }
   }, [loggedIn]);
+
+  const ccccc = cards
 
   function handleLogin(userData) {
     auth
@@ -126,7 +122,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((user) => user._id === currentUser._id);
+    const isLiked = card.likes.some((user) => user === currentUser._id);
 
     api
       .putLike(card._id, !isLiked)
