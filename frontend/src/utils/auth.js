@@ -44,7 +44,7 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: 'http://api.myplace.nomoredomains.rocks',
+  baseUrl: 'https://api.myplace.nomoredomains.rocks',
 });
 
 export default auth;
